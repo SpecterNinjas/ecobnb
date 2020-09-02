@@ -1,0 +1,75 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Ecobnb - sign in{% endblock title %}
+{% block css_link %}
+     <link rel="stylesheet" href="{% static 'main/css/user_creation.css' %}">
+{% endblock %}
+{% block body %}
+    {% include 'main/header.html' %}
+    <br><br><br><br>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 rows2">
+            <!-- Default form login -->
+            <div class="hoverable" >
+            <form method="POST"  class="text-center border border-light p-5" action="" autocomplete="off">
+                {% csrf_token %}
+                <p class="h1 mb-4 mt-2" style="text-shadow: 3px 3px 2px powderblue">Sign in</p>
+                <hr>
+                <br>
+                <!-- Username -->
+                <div class="control-group h5">
+                    {{ form.username|as_crispy_field }}
+                </div>
+
+                <!-- Password -->
+                <div class="control-group h5">
+                    {{ form.password|as_crispy_field }}
+                </div>
+                <div class="d-flex justify-content-around">
+                    <div>
+                        <!-- Remember me -->
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
+                            <label class="custom-control-label h5" for="defaultLoginFormRemember">Remember me</label>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Forgot password -->
+                        <div class="h5">
+                            <a href="#">&nbsp;&nbsp;&nbsp;Forgot password?</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sign in button -->
+
+                <button class="btn btn-info btn-block my-4" style="font-size: 13px;" type="submit">Sign in</button>
+
+                <!-- Register -->
+                <p class="h5 text-center pl-0">Not a member?
+                    <a href="{% url 'main:register' %}">&nbsp;&nbsp;&nbsp;Register</a>
+                </p>
+
+                <!-- Social login -->
+                <p class="h5">or sign in with:</p>
+
+                <div class="h4">
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+                </div>
+            </form>
+                </div>
+            <!-- Default form login -->
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <br><br><br><br>
+
+    {% include 'main/footer.html' %}
+{% endblock body %}

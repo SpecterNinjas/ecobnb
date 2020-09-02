@@ -1,0 +1,84 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}User Registration{% endblock %}
+
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/css/user_creation.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% include 'main/header.html' %}
+    <br><br>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 rows2">
+            <div class="hoverable">
+                <form class="text-center border border-light p-5" style="width: 100%;" action="" method="POST" autocomplete="off">
+{% csrf_token %}
+                    <p class="h1 mb-4 mt-2" style="text-shadow: 3px 3px 2px powderblue">Sign up</p>
+                    <hr>
+                    <div class="form-row mb-4 mt-4">
+                        <div class="col">
+                            <!-- Username -->
+                            <div class="control-group h5 mb-4">
+                                {{ form.username|as_crispy_field }}
+                            </div>
+                        </div>
+                        <div class="col">
+                            <!-- First name -->
+                            <div class="control-group h5 mb-4">
+                                {{ form.first_name|as_crispy_field }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- E-mail -->
+                    <div class="control-group h5 mb-4">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                    <!-- Password -->
+                    <div class="control-group h5 mb-4">
+                        {{ form.password1|as_crispy_field }}
+                    </div>
+                    <div class="control-group h5 mb-4">
+                        {{ form.password2|as_crispy_field }}
+                    </div>
+
+
+                    <!-- Newsletter -->
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
+                        <label class="custom-control-label h5" for="defaultRegisterFormNewsletter">Subscribe to our
+                            newsletter</label>
+                    </div>
+
+                    <!-- Sign up button -->
+                    <button class="btn btn-info my-4 btn-block" style="font-size: 13px;" type="submit">Sign up</button>
+
+                    <!-- Social register -->
+                    <p class="h5">or sign up with:</p>
+
+                    <div class="h4">
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                        <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
+                    </div>
+                    <hr>
+
+                    <!-- Terms of service -->
+                    <p class="h5 mt-4">By clicking
+                        <em>Sign up</em> you agree to our
+                        <a href="#" target="_blank">terms of service</a>
+
+                </form>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+
+    </div>
+    <br><br><br>
+    {% include 'main/footer.html' %}
+{% endblock body %}

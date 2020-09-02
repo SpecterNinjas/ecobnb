@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Ecobnb - sign out{% endblock %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/css/logout.css' %}">
+{% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="header">
+                <h2 class="text-center py-4"><strong>EconBnB</strong></h2>
+            </div>
+            <div class="h4 mb-3 text-center icon">
+                <a href="{% url 'main:main' %}" class="mx-2" role="button" style="color: white;"><i
+                        class="fas fa-sign-out-alt"></i></a>
+            </div>
+            <h1 class="text-center text-capitalize"
+                style="font-size:52px; line-height: 55px;color:rgb(51,51,51); font-weight: 500;">You Have Been
+                <br>Logged Out</h1>
+            <p class="mb-2 text-center" style="padding-top: 5px;
+    font-size: 17px;padding-bottom: 20px;">Thank you for using our website</p>
+            <p class="mb-4 text-center">Please <a href="{% url 'main:login' %}">click here</a> to login back!</p>
+            <hr class="mb-3">
+            <ul class="list-unstyled list-inline text-center">
+                <li class="list-inline-item"><a href="{% url 'main:main' %}">Home</a>
+                    <span class="mgl-10 mgr-10 vd_soft-grey">|</span>
+                </li>
+                <li class="list-inline-item"><a href="#">About&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <span class="mgl-10 mgr-10 vd_soft-grey">|</span>
+                </li>
+                <li class="list-inline-item"><a href="#">FAQ&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    <span class="mgl-10 mgr-10 vd_soft-grey">|</span>
+                </li>
+                <li class="list-inline-item"><a href="#">Contact</a></li>
+
+            </ul>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+{% endblock %}

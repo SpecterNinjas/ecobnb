@@ -1,0 +1,44 @@
+body {
+    background-color: rgb(240, 240, 240);
+    font-size: 13px;
+    line-height: 23px;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+.header {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-shadow: 3px 3px 2px powderblue;
+
+}
+
+.icon {
+    font-size: 68px;
+    width: 120px;
+    height: 120px;
+    line-height: 114px;
+    display: block;
+    margin: 20px auto 30px;
+    border-radius: 60px;
+    border: 1px solid #FFFFFF;
+    background-color: #D5D5D5;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+a {
+    color: rgb(31, 174, 102);
+}
+
+.vd_soft-grey {
+    color: #b5b5b5 !important;
+}
+
+.mgl-10 {
+    margin-left: 10px !important;
+}
+
+.mgr-10 {
+    margin-right: 10px !important;
+}

@@ -1,0 +1,102 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% block title %}Ecobnb{% endblock %}
+{% block body %}
+    <div class="default">
+        {#    {% if user.is_authenticated %}#}
+        {#        <h2>Main page {{ user }}</h2>#}
+        {##}
+        {#        <h3><a href="{% url 'main:logout' %}">Log out</a></h3>#}
+        {#    {% else %}#}
+        {#        <h2>Main page</h2>#}
+        {#        <h3><a href="{% url 'main:register' %}">Create Account</a></h3>#}
+        {#        <h3><a href="{% url 'main:login' %}">Login</a></h3>#}
+        {##}
+        {#    {% endif %}#}
+    </div>
+
+    {% include 'main/header.html' %}
+    {% include 'main/carousel.html' %}
+    {% include 'main/cards.html' %}
+    <section class="">
+
+        <div class="sec-head rows">
+            <h2 class="dashed-shadow">
+                Our popular acitvities
+            </h2>
+        </div>
+        <div class="rows">
+            <!-- Grid row -->
+
+
+            <!-- Grid column -->
+            <div class="col-md-12 mb-3">
+
+                <img src="" class="img-fluid z-depth-1" alt="">
+
+            </div>
+
+            <div class="sec2-box view overlay zoom">
+
+                <img src="{% static 'main/img/sking.jpeg' %}" class="img-fluid z-depth-5" alt="Responsive image">
+
+            </div>
+
+            <div class="sec2-box view overlay zoom">
+
+                <img src="{% static 'main/img/activity2.jpeg' %}" class="img-fluid z-depth-5" alt="Responsive image">
+
+            </div>
+
+            <div class="sec2-box view overlay zoom">
+
+                <img src="{% static 'main/img/acticity3.jpeg' %}" class="img-fluid z-depth-5" alt="Responsive image">
+
+            </div>
+
+
+            <div class="sec2-box view overlay zoom">
+
+                <img src="{% static 'main/img/diving.jpeg' %}" class="img-fluid z-depth-5" alt="Responsive image">
+
+            </div>
+
+            <div class="sec2-box view overlay zoom">
+
+                <img src="{% static 'main/img/activity1.jpeg' %}" class="img-fluid z-depth-5" alt="Responsive image">
+
+            </div>
+
+        </div>
+
+    </section>
+    <section class="section">
+
+        <div class="sec-text rows z-depth-5 rounded mb-0">
+            <h2 class="dashed-shadow">
+                Principles of Ecotourism
+            </h2>
+
+            <p>
+
+                Ecotourism is about uniting conservation, communities, and sustainable travel. This means that those who
+                implement, participate in and market ecotourism activities should adopt the following ecotourism
+                principles:</br>
+                Minimize physical, social, behavioral, and psychological impacts.</br>
+                Build environmental and cultural awareness and respect.</br>
+                Provide positive experiences for both visitors and hosts.</br>
+                Provide direct financial benefits for conservation.</br>
+                Generate financial benefits for both local people and private industry.</br>
+                Deliver memorable interpretative experiences to visitors that help raise sensitivity to host countries’
+                political, environmental, and social climates.</br>
+                Design, construct and operate low-impact facilities.</br>
+                Recognize the rights and spiritual beliefs of the Indigenous People in your community and work in
+                partnership
+                with them to create empowerment.</br>
+
+            </p>
+        </div>
+
+    </section>
+    {% include 'main/footer.html' %}
+{% endblock %}

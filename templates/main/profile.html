@@ -1,0 +1,165 @@
+{% extends 'main/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Ecobnb - profile{% endblock title %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/css/user_creation.css' %}">
+{% endblock %}
+{% block body %}
+
+    {% include 'main/header.html' %}
+    <br><br><br>
+
+    <div class="profile-r">
+
+
+        <div class="p-user">
+            <!-- Card -->
+            <div class="card testimonial-card z-depth-5 rounded mb-0">
+
+                <!-- Background color -->
+                <div class="card-up indigo lighten-1"></div>
+
+                <!-- Avatar -->
+                <div class="avatar mx-auto white mt-4">
+                    <img style="width: 227px;height: 225px;"
+                         src="{% static 'main/avatars/default_avatar.jpg' %}" class="rounded-circle"
+                         alt="Default avatar">
+                </div>
+
+                <!-- Content -->
+                <div class="card-body">
+                    <!-- Name -->
+                    <h3 class="card-title"><strong>{{ user.username }}</strong></h3>
+                    <hr>
+                    <!-- Quotation -->
+                    <p class="h3-responsive">
+                        {% if  user.first_name %}
+                            <strong>Name: </strong>{{ user.first_name }}<br>
+                        {% endif %}
+                        <strong>Email Address: </strong>{{ user.email }}<br>
+                        <strong>Last Login: </strong>{{ user.last_login }}<br>
+                        <strong>Date Joined: </strong>{{ user.date_joined }}<br>
+                    </p>
+                </div>
+
+            </div>
+            <!-- Card -->
+
+        </div>
+
+        <div class="c-user z-depth-5 rounded mb-0 ">
+            <!-- Nav tabs -->
+            <nav>
+                <ul class="nav nav-tabs h3-responsive">
+                    <li class="nav-item">
+                        <a class="nav-link active   " data-toggle="tab" href="#home">Reservation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu1">Safety Center</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" data-toggle="tab" href="#menu2">Contact us</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div id="home" class="container tab-pane active"><br>
+                    <h3>HOME</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                </div>
+                <div id="menu1" class="container tab-pane fade"><br>
+                    <h3>Menu 1</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.</p>
+                </div>
+                <div id="menu2" class="container tab-pane fade h4-responsive"><br>
+                    <div id="contact-page" class="container">
+                        <div class="bg">
+
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="contact-form">
+                                        <h4 class="title text-center h4-responsive mt-3 mb-3"><strong> Get in
+                                            Touch </strong></h4>
+                                        <div class="status alert alert-success" style="display: none"></div>
+                                        <form id="main-contact-form" class="contact-form row" autocomplete="off"
+                                              action=""
+                                              method="POST">
+                                            {% csrf_token %}
+                                            <div class="form-group col-md-12" style="display: none;">
+                                                <label>
+                                                    <input type="email" name="email" value="{{ email }}">
+                                                </label>
+                                            </div>
+
+                                            <div class="form-group col-md-12">
+                                                {{ form.subject|as_crispy_field }}
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                {{ form.message|as_crispy_field }}
+                                                {#                                                <textarea name="message" id="message" required="required"#}
+                                                {#                                                          class="form-control" rows="8"#}
+                                                {#                                                          placeholder="Your Message To Ecobnb"></textarea>#}
+                                            </div>
+                                            <div class="form-group col-md-12">
+                                                <button type="submit" name="submit" style="letter-spacing: 2px;
+    padding: 12px;font-size: 8px;" class="btn btn-primary pull-right"
+                                                        id="btn-submit"><strong>Submit</strong>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="contact-info mt-3 mb-3">
+                                        <h6 class="title text-center h5-responsive"><strong>Contact Info</strong></h6>
+                                        <address>
+                                            <p>E-Shopper Inc.</p>
+                                            <p>935 W. Webster Ave New Streets Chicago, IL 60614, NY</p>
+                                            <p>New York, USA</p>
+                                            <p>Mobile: +2346 17 38 93</p>
+                                            <p>Fax: 1-714-252-0026</p>
+                                            <p>Email: info@e-EcoBnB.com</p>
+                                        </address>
+                                        <div class="social-networks">
+                                            <h6 class="title text-center h5-responsive"><strong>Social
+                                                Networking</strong></h6>
+                                            <ul class="h5-responsive">
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" data-placement="right"
+                                                       title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" data-placement="right"
+                                                       title="Twitter"><i class="fab fa-twitter"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" data-placement="right"
+                                                       title="Google+"><i class="fab fa-google-plus-g"></i></a>
+                                                </li>
+                                                <li>
+                                                    <a href="#" data-toggle="tooltip" data-placement="right"
+                                                       title="Youtube"><i class="fab fa-youtube"></i></a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--/#contact-page-->
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <br><br><br>
+    {% include 'main/footer.html' %}
+{% endblock %}
+

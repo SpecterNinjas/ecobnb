@@ -1,0 +1,57 @@
+{% extends 'main/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Ecobnb - Contact Us{% endblock title %}
+{% block css_link %}
+    <link rel="stylesheet" href="{% static 'main/css/user_creation.css' %}">
+{% endblock %}
+
+{% block body %}
+    {% include 'main/header.html' %}
+
+    <br><br><br>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+
+                <!-- Default form Contact Us -->
+                <form method="POST" class="text-center border border-light p-5" action="" autocomplete="off">
+                    {% csrf_token %}
+                    <p class="h1 mb-4 mt-2" style="text-shadow: 3px 3px 2px powderblue">Contact Us</p>
+                    <hr/>
+                    <br>
+                    <!-- Username --><!-- Email -->
+                    <div class="control-group h5">
+                        <div class="row">
+                            <div class="col"> {{ form.username|as_crispy_field }}</div>
+                            <div class="col"> {{ form.email|as_crispy_field }}</div>
+                        </div>
+                    </div>
+
+                    <!-- subject -->
+                    <div class="control-group h5">
+                        {{ form.subject|as_crispy_field }}
+                    </div>
+
+                    <!-- message -->
+                    <div class="control-group h5">
+                        {{ form.message|as_crispy_field }}
+                    </div>
+
+                    <!-- Submit button -->
+
+                    <button class="btn btn-info btn-block my-4" style="font-size: 13px;" type="submit">Submit
+                        Message
+                    </button>
+
+                </form>
+
+
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+    <br><br><br>
+
+{% endblock %}

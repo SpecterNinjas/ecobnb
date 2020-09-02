@@ -1,0 +1,95 @@
+<div id="header" style="margin-bottom: -3px;">
+    <!--Navbar -->
+    <nav class="mb-1 navbar navbar-expand-lg navbar-dark default-color navbar-static-top">
+        <a class="navbar-brand" href="{% url 'main:main' %}" style="font-size: x-large;">EcoBnB</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent-333"
+                aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent-333" style="font-size: 18px;">
+            <ul class="navbar-nav mr-auto">
+                {% if request.path == '/' %}
+                    <li class="nav-item active">
+                        {% else %}
+                    <li class="nav-item">
+                {% endif %}
+                <a class="nav-link" href="{% url 'main:main' %}">Home
+                    <span class="sr-only">(current)</span>
+                </a>
+                </li>
+
+
+                {% if 'place' in request.path %}
+                    <li class="nav-item active">
+                        {% else %}
+                    <li class="nav-item">
+                {% endif %}
+                <a class="nav-link" href="{% url 'main:place' %}">Place</a>
+                </li>
+
+
+                {% if 'activity' in request.path %}
+                    <li class="nav-item active">
+                        {% else %}
+                    <li class="nav-item">
+                {% endif %}
+                <a class="nav-link" href="{% url 'main:activity' %}">Activities</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">Dropdown
+                    </a>
+                    <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+                        <a class="dropdown-item" href="#" style="font-size: 15px;">Action</a>
+                        <a class="dropdown-item" href="#" style="font-size: 15px;">Another action</a>
+                        <a class="dropdown-item" href="#" style="font-size: 15px;">Something else here</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto nav-flex-icons">
+
+                {% if  not user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link aqua-gradient" href="{% url 'main:register' %}"><strong>Sign up</strong> </a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link waves-effect waves-light pr-0" href="{% url 'main:profile' %}">
+                           <strong>{{ user.username }}</strong>
+                        </a>
+                    </li>
+                {% endif %}
+
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle pl-4" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right dropdown-default"
+                         aria-labelledby="navbarDropdownMenuLink-333">
+                        {% if user.is_authenticated %}
+                            {% if 'profile' in request.path %}
+                                <a class="dropdown-item bg-light" href="{% url 'main:profile' %}"
+                                   style="font-size: 15px;">Your
+                                    profile </a>
+                            {% else %}
+                                <a class="dropdown-item" href="{% url 'main:profile' %}" style="font-size: 15px;">Your
+                                    profile </a>
+                            {% endif %}
+                            <a class="dropdown-item" href="{% url 'main:logout' %}" style="font-size: 15px;">Sign
+                                out</a>
+                        {% else %}
+                            <a class="dropdown-item" href="{% url 'main:login' %}" style="font-size: 15px;">Log in</a>
+
+                        {% endif %}
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!--/.Navbar -->
+</div>
